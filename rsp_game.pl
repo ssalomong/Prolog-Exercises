@@ -42,19 +42,19 @@ isOver(X, Y) :-
 %	wins(?Weapon1, ?Weapon2, ?Solution)
 wins(X, Y, Sol) :-
 	isOver(Sol, Y),
-	Sol = X;
-	isOver(Sol, X),
-	Sol = Y;
-	X = Y, weapon(X),
+	Sol = X     %;
+;	isOver(Sol, X),
+	Sol = Y     %;
+;	X = Y, weapon(X),
 	Sol = draw.
 
 %	game/2
 %	game(?Weapon1, ?Weapon2)
 game(X, Y) :-
 	isOver(X,Y),
-	nl, write(X), write(' wins'), nl %;
+	nl, write(X), write(' wins'), nl    %;
 ;	isOver(Y,X),
-	nl, write(Y), write(' wins'), nl %;
+	nl, write(Y), write(' wins'), nl    %;
 ;	X = Y, 
 	weapon(X), 
 	nl, write('There is a draw!'), nl.
@@ -68,29 +68,29 @@ game(X, Y, Z) :-
 	isOver(X,Y),
 	isOver(Y,Z),
 	isOver(Z,X),
-	nl, write('There is a draw!'), nl %;
+	nl, write('There is a draw!'), nl   %;
 ;	isOver(X,Z),
 	isOver(Z,Y),
 	isOver(Y,X),
-	nl, write('There is a draw!'), nl %;
+	nl, write('There is a draw!'), nl   %;
 ;	X = Y, Y = Z,
 	weapon(X),
-	nl, write('There is a draw!'), nl %;
+	nl, write('There is a draw!'), nl   %;
 ;	isOver(X,Z),
 	X = Y,
-	nl, write('There is a draw!'), nl %;
+	nl, write('There is a draw!'), nl   %;
 ;	isOver(X,Y),
 	X = Z,
-	nl, write('There is a draw!'), nl %;
+	nl, write('There is a draw!'), nl   %;
 ;	isOver(Y,X),
 	Y = Z,
-	nl, write('There is a draw!'), nl %;
+	nl, write('There is a draw!'), nl   %;
 ;	isOver(X,Y),
 	isOver(X,Z),
-	nl, write(X), write(' wins'), nl %;
+	nl, write(X), write(' wins'), nl    %;
 ;	isOver(Y,X),
 	isOver(Y,Z),
-	nl, write(Y), write(' wins'), nl %;
+	nl, write(Y), write(' wins'), nl    %;
 ;	isOver(Z,X),
 	isOver(Z,Y),
 	nl, write(Z), write(' wins'), nl.
