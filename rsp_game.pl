@@ -40,24 +40,25 @@ isOver(X, Y) :-
 
 %	wins/3
 %	wins(?Weapon1, ?Weapon2, ?Solution)
-wins(X, Y, Sol) :-
-	isOver(Sol, Y),
-	Sol = X     %;
-;	isOver(Sol, X),
-	Sol = Y     %;
-;	X = Y, weapon(X),
-	Sol = draw.
+wins(X, X, draw) :-	
+    weapon(X).
+wins(X, Y, X) :-
+	isOver(X, Y).
+wins(X, Y, Y) :-	
+    isOver(Y, X).
+
 
 %	game/2
 %	game(?Weapon1, ?Weapon2)
 game(X, Y) :-
-	isOver(X,Y),
-	nl, write(X), write(' wins'), nl    %;
-;	isOver(Y,X),
-	nl, write(Y), write(' wins'), nl    %;
-;	X = Y, 
-	weapon(X), 
+	wins(X,Y,Sol), 
+	Sol \= draw,
+	nl, write(Sol), write(' wins'), nl.
+game(X, Y) :-
+	wins(X,Y,draw), 
 	nl, write('There is a draw!'), nl.
+
+
 
 
 % Could 3 people play ? ... Of course!
@@ -94,5 +95,6 @@ game(X, Y, Z) :-
 ;	isOver(Z,X),
 	isOver(Z,Y),
 	nl, write(Z), write(' wins'), nl.
+% WTF! This should be improved...
 
 
