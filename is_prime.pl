@@ -1,8 +1,8 @@
-% % 
+%
 % Check if a natural number is prime using mods (brute force)
 %
 % Author:   Sergio Salomon Garcia <sergio.salomon@alumnos.unican.es>
-% %
+%
 
 %   is_prime/1
 %   is_prime(+Num)
