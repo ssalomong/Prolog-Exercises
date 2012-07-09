@@ -40,7 +40,7 @@
 %
 %%%%%%%%%
 
-% The '-->' syntax would be a cleaner way
+% The '-->' (DCG) syntax would be a cleaner way
 
 
 %	noun/1
