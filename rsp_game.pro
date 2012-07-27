@@ -1,9 +1,9 @@
-%
+% % 
 % Rock-Paper-Scissors Game in Prolog --
 %	Rock, Paper, Scissors... Lizard, Spock
 %
-% Author:   Sergio Salomon Garcia <sergio.salomon@alumnos.unican.es>
-%
+% Sergio Salomon Garcia <sergio.salomon@alumnos.unican.es>
+% %
 
 %%  FACTS:  %%
 
@@ -13,20 +13,17 @@ weapon(scissors).
 weapon(lizard).
 weapon(spock).
 
-over(rock, scissors).
-over(rock, lizard).
 
-over(paper, rock).
-over(paper, spock).
-
-over(scissors, paper).
-over(scissors, lizard).
-
-over(lizard, paper).
-over(lizard, spock).
-
-over(spock, rock).
-over(spock, scissors).
+over(scissors, paper).	% Scissors cuts paper,
+over(paper, rock).		% paper covers rock,
+over(rock, lizard).		% rock crushes lizard,
+over(lizard, spock).	% lizard poisons Spock,
+over(spock, scissors).	% Spock smashes scissors,
+over(scissors, lizard).	% scissors decapitates lizard,
+over(lizard, paper).	% lizzard eats paper,
+over(paper, spock).		% paper disproves Spock,
+over(spock, rock).		% Spock vaporizes rock,
+over(rock, scissors).	% and, as it always has, rock crushes scissors.
 
 
 %%  RULES:  %%
@@ -40,12 +37,9 @@ isOver(X, Y) :-
 
 %	wins/3
 %	wins(?Weapon1, ?Weapon2, ?Solution)
-wins(X, X, draw) :-	
-    weapon(X).
-wins(X, Y, X) :-
-	isOver(X, Y).
-wins(X, Y, Y) :-	
-    isOver(Y, X).
+wins(X, X, draw) :-	weapon(X).
+wins(X, Y, X) :- isOver(X, Y).
+wins(X, Y, Y) :- isOver(Y, X).
 
 
 %	game/2
@@ -53,10 +47,10 @@ wins(X, Y, Y) :-
 game(X, Y) :-
 	wins(X,Y,Sol), 
 	Sol \= draw,
-	nl, write(Sol), write(' wins'), nl.
+	nl, write(Sol), write(' wins'), nl, !.
 game(X, Y) :-
 	wins(X,Y,draw), 
-	nl, write('There is a draw!'), nl.
+	nl, write('There is a draw!'), nl, !.
 
 
 
