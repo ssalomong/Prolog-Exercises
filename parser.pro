@@ -3,7 +3,7 @@
 %
 % ( http://www.amzi.com/AdventureInProlog/a15nlang.php )
 %
-% Sergio Salomon Garcia		<sergio.salomon@alumnos.unican.es>
+% Sergio Salomon Garcia		<sergio.salomon at alumnos.unican.es>
 %
 
 

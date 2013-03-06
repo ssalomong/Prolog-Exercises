@@ -2,7 +2,7 @@
 % Rock-Paper-Scissors Game in Prolog --
 %	Rock, Paper, Scissors... Lizard, Spock
 %
-% Sergio Salomon Garcia <sergio.salomon@alumnos.unican.es>
+% Sergio Salomon Garcia <sergio.salomon at alumnos.unican.es>
 % %
 
 %%  FACTS:  %%
